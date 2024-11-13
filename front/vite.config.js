@@ -1,7 +1,12 @@
-import { purgeCss } from "vite-plugin-tailwind-purgecss";
-import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
+import { sveltekit } from "@sveltejs/kit/vite";
+import path from "path";
 
 export default defineConfig({
-  plugins: [sveltekit(), purgeCss()],
+  plugins: [sveltekit()],
+  resolve: {
+    alias: {
+      $: path.resolve("./src"), // Map `$` to `/src` directory
+    },
+  },
 });

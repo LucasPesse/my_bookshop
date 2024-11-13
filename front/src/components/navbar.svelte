@@ -1,20 +1,19 @@
 <script>
-	import { TabGroup, Tab, TabAnchor } from '@skeletonlabs/skeleton';
+	import { LightSwitch } from "@skeletonlabs/skeleton";
 </script>
 
-<nav class="bg-primary-300 h-14">
-	<TabGroup
-		justify="justify-center"
-		active="variant-filled-primary"
-		hover="hover:variant-soft-primary"
-		flex="flex-1 lg:flex-none"
-		rounded=""
-		border=""
-		class="bg-surface-100-800-token w-full"
-	>
-		<TabAnchor href="/">
-			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<span>Book</span>
-		</TabAnchor>
-	</TabGroup>
-</nav>
+<header class="bg-primary-500 py-4">
+	<div class="container mx-auto flex justify-between items-center">
+		<a href="/" class="text-2xl font-bold h3">My Bookshop</a>
+		<div class="flex items-center gap-4">
+			<input
+				type="text"
+				placeholder="Chercher un livre..."
+				name="search"
+				class="input"
+			/>
+			<button type="button" class="btn variant-filled-secondary">Trouver</button>
+			<LightSwitch />
+		</div>
+	</div>
+</header>

@@ -1,6 +1,5 @@
 <script>
 	import '../app.postcss';
-	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import Navbar from '../components/navbar.svelte';
 
 	// Highlight JS
@@ -25,17 +24,6 @@
 </script>
 
 <div>
-	<div class="bg-primary-500">
-		<div class="flex justify-between p-2">
-			<div>
-				<h3 class="h3 p-2"><a href="/">My bookshop</a></h3>
-			</div>
-			<div class="flex justify-center">
-				<input class="input" title="Input (text)" type="text" placeholder="input text" />
-				<LightSwitch />
-			</div>
-		</div>
-	</div>
-	<Navbar />
+	<Navbar/>
 	<slot />
 </div>

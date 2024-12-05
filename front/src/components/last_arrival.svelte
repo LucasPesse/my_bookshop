@@ -9,14 +9,15 @@
 			<div class="bg-white rounded-lg shadow-lg overflow-hidden">
 				<img src={book.cover} alt="Couverture de {book.title}" class="w-full h-64 object-cover" />
 				<div class="p-4">
-					<a href={`/${book.id}`} class="text-xl font-bold h-12 overflow-hidden text-ellipsis whitespace-nowrap">
+					<a
+						href={`/${book.id}`}
+						class="text-xl font-bold h-12 overflow-hidden text-ellipsis whitespace-nowrap dark:text-surface-900"
+					>
 						{book.title}
 					</a>
-					<p class="text-gray-600">{book.author}</p>
-					<p class="text-blue-600 font-semibold">{book.price}</p>
-					<button class="mt-4 w-full bg-blue-600 py-2 rounded hover:bg-blue-700">
-						Ajouter au Panier
-					</button>
+					<p class="text-surface-800">{book.author}</p>
+					<p class="text-surface-500 font-semibold">{book.price}</p>
+					<button type="button" class="btn variant-filled-primary">Ajouter au panier</button>
 				</div>
 			</div>
 		{/each}

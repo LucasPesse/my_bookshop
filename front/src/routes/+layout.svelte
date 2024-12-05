@@ -1,6 +1,6 @@
 <script>
-	import '../app.postcss';
-	import Navbar from '../components/navbar.svelte';
+	import '$/app.postcss';
+	import Navbar from '$/components/navbar.svelte';
 
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
@@ -17,6 +17,9 @@
 	hljs.registerLanguage('typescript', typescript);
 	storeHighlightJs.set(hljs);
 
+	import { SvelteToast } from '@zerodevx/svelte-toast'
+
+
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
@@ -24,6 +27,7 @@
 </script>
 
 <div>
-	<Navbar/>
+	<Navbar />
 	<slot />
+	<SvelteToast />
 </div>

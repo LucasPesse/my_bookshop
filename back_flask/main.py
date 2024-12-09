@@ -79,7 +79,7 @@ def search_user(mail):
         "user_info": user.to_dict() if user else None
     })
 
-@app.post("/user")
+@app.post("/api/user")
 def create_user():
     data = request.get_json()
 
@@ -98,6 +98,18 @@ def create_user():
         "status": 200,
         "id": user.id
     }
+
+@app.post("/api/auth/login")
+def login():
+    info = request.get_json();
+    mail = info["mail"];
+    password = info["password"];
+
+    account = db.session.execute(db.select(User).filter_by(email=mail, password=password)).scalar();
+
+    return jsonify({
+        "id": None if not account else account.id
+    })
 
 # Launcher
 

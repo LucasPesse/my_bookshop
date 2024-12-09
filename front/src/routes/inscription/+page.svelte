@@ -17,13 +17,13 @@
 	}
 </script>
 
-<div class="flex justify-center items-stretch h-screen">
-	<div class="w-1/2 bg-secondary-500"></div>
+<div class="flex justify-center h-svh">
+	<div class="w-1/2"></div>
 	<div class="w-1/2 flex justify-center items-center">
 		<form method="post" class="p-5">
 			<h3 class="h3">Créez votre compte</h3>
 			<p>
-				Vous avez déjà un compte ? Vous pouvez vous connecter <a class="anchor" href="/">ici</a> !
+				Vous avez déjà un compte ? Vous pouvez vous connecter <a class="anchor" href="/connexion">ici</a> !
 			</p>
 			<div class="py-5 w-3/4">
 				<label class="label py-2">
@@ -54,6 +54,8 @@
 					/>
 					{#if form?.existing}
 						<p class="text-error-500">{form?.mail_error}</p>
+					{:else if form?.invalid}
+						<p class="text-error-500">{form?.invalid_msg}</p>
 					{/if}
 				</label>
 				<label class="label py-2">

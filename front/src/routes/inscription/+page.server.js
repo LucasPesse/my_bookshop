@@ -1,4 +1,4 @@
-import { error, fail, redirect } from "@sveltejs/kit";
+import { fail } from "@sveltejs/kit";
 import * as User from "$lib/user.js";
 
 export const actions = {
@@ -17,6 +17,13 @@ export const actions = {
       return fail(400, {
         incorrect: true,
         error: "Votre mot de passe ne correspond pas aux normes.",
+      });
+
+    const mail_regex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+    if (!mail_regex.test(mail))
+      return fail(400, {
+        invalid: true,
+        invalid_msg: "Votre adresse mail n'est pas une adresse valide.",
       });
 
     // Verification of the existance of the mail

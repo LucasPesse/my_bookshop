@@ -7,12 +7,20 @@ export async function find_user(mail) {
 }
 
 export async function create_user(fname, lname, mail, password, newsletter) {
-  const res = await axios.post(`${api.back_api}/user`, {
+  const res = await axios.post(`${api.back_api}/api/user`, {
     fname: fname,
     lname: lname,
     mail: mail,
     password: password,
     newsletter: newsletter,
+  });
+  return res.data;
+}
+
+export async function connect_user(mail, password) {
+  const res = await axios.post(`${api.back_api}/api/auth/login`, {
+    mail: mail,
+    password: password,
   });
   return res.data;
 }

@@ -24,3 +24,19 @@ export async function connect_user(mail, password) {
   });
   return res.data;
 }
+
+export async function get_user_info(id) {
+  return await axios.get(`${api.back_api}/user/${id}`);
+}
+
+export async function edit_user(id, fname, lname, mail, password, newsletter) {
+  const res = await axios.put(`${api.back_api}/api/user`, {
+    id: id,
+    first_name: fname,
+    last_name: lname,
+    mail: mail,
+    password: password,
+    newsletter: newsletter,
+  });
+  return res.data;
+}

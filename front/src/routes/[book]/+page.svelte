@@ -1,5 +1,6 @@
 <script>
 	export let data;
+	let book_id = data.id;
 </script>
 
 <main class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
@@ -30,13 +31,18 @@
 						Indisponible
 					</p>
 				{/if}
-				<a
-					href={data.id}
-					target="_blank"
-					class="inline-block mt-4 px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-blue-700"
-				>
-					Acheter maintenant
-				</a>
+				<form method="post">
+					<input type="hidden" name="book_id" bind:value={book_id}>
+					<div class="py-2" min="1">
+						<input type="number" name="quantity" value="1" class="input w-1/3">
+					</div>
+					<button
+						type="submit"
+						class="btn variant-filled-primary"
+					>
+						Acheter maintenant
+					</button>
+				</form>
 			</div>
 			<div class="mt-4">
 				<a href={data.volumeInfo.previewLink} target="_blank" class="text-primary-600 hover:underline"

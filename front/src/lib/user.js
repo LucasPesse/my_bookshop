@@ -24,3 +24,7 @@ export async function connect_user(mail, password) {
   });
   return res.data;
 }
+
+export async function get_user_info(id) {
+  return await axios.get(`${api.back_api}/user/${id}`);
+}

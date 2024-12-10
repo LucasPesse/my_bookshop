@@ -1,3 +1,6 @@
 export async function load({ cookies }) {
-  console.log(cookies.get("user"));
+  const connected = cookies.get("user") ? true : false;
+  return {
+    connected: connected,
+  };
 }

@@ -79,6 +79,13 @@ def search_user(mail):
         "user_info": user.to_dict() if user else None
     })
 
+@app.get("/user/<int:id>")
+def get_user_by_id(id):
+    user = db.session.execute(db.select(User).filter_by(id=id)).scalar();
+    return jsonify({
+        "user_info": user.to_dict() if user else None
+    })
+
 @app.post("/api/user")
 def create_user():
     data = request.get_json()

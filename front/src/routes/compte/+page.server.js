@@ -1,4 +1,4 @@
-import { error } from "@sveltejs/kit";
+import { error, fail } from "@sveltejs/kit";
 import * as User from "$lib/user.js";
 
 export async function load({ cookies }) {
@@ -14,3 +14,10 @@ export async function load({ cookies }) {
     user_info: data.data.user_info,
   };
 }
+
+export const actions = {
+  default: async ({ request }) => {
+    const user_info = await request.formData();
+    console.log(user_info);
+  },
+};
